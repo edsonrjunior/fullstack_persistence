@@ -1,0 +1,66 @@
+package br.com.edson.principal;
+
+import java.awt.Transparency;
+import java.util.List;
+
+import javax.persistence.Embeddable;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.swing.JOptionPane;
+
+import br.com.edson.entity.Funcionario;
+import br.com.edson.entity.Tarefa;
+import br.com.edson.helper.VendasHelper;
+
+public class Programa {
+
+	public static void main(String[] args) {
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaPU");
+
+		EntityManager em = emf.createEntityManager();
+		
+// 		incluirFuncionario(em);
+//	listarFuncionarios(em);
+		buscarFuncionario(em, "41014881");
+		
+	}
+
+	public static void incluirFuncionario(EntityManager em) {
+		VendasHelper dao = new VendasHelper(em);
+
+		Funcionario funcionario = new Funcionario();
+		funcionario.setMatricula("41014881");
+		funcionario.setNome("Edson");
+
+		Tarefa tarefa = new Tarefa();
+		tarefa.setDescricao("Testes unitários");
+		tarefa.setDuracao(100);
+		tarefa.getFuncionarios().add(funcionario);
+
+		funcionario.getTarefas().add(tarefa);
+
+		try {
+			dao.Salvar(funcionario);
+			JOptionPane.showMessageDialog(null, "Funcionário: " + funcionario.getNome() + " OK");
+		} catch (Exception e) {
+			System.err.println("ERRO =====>" + e.getMessage());
+		}
+	}
+
+	public static void listarFuncionarios(EntityManager em) {
+		VendasHelper dao = new VendasHelper(em);
+		List<Funcionario> funcionarios = dao.listarFuncionarios();
+		for (Funcionario funcionario : funcionarios) {
+			System.out.println(funcionario.getMatricula() + " : " + funcionario.getNome());
+		}
+	}
+
+	public static void buscarFuncionario(EntityManager em, String matricula) {
+		VendasHelper dao = new VendasHelper(em);
+		Funcionario funcionario = dao.buscarFuncionario(matricula);
+		System.out.println(funcionario.getMatricula() + " : " + funcionario.getNome());
+	}
+
+}
