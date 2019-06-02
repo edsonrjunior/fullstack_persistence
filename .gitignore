@@ -1,8 +1,9 @@
 # Eclipse
 .classpath
 .project
-.settings/
+.settings
+.metadata
 
-# Maven
-log/
-target/
+# Pastas
+/log/*
+/target/*

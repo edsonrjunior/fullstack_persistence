@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<item value="D:\Documents\Estudo\FullStack FIAP\Persistence\libs_jpa" key="org.eclipse.jdt.ui.lastextjar"/>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item value="false" key="renameSubpackages"/>
 		<item value="false" key="updateQualifiedNames"/>
 		<item value="*" key="patterns"/>
 		<item value="false" key="updateSimilarElements"/>
@@ -86,7 +87,7 @@
 		<item value="10" key="LimitValue"/>
 	</section>
 	<section name="ClasspathContainerSelectionPage">
-		<item value="5" key="index"/>
+		<item value="8" key="index"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
 		<item value="2" key="pageIndex"/>

@@ -1,7 +1,0 @@
-package br.com.edson.repository;
-
-@Repository
-public interface ProdutoRepository extends jpare {
-	
-
-}
