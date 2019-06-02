@@ -1,0 +1,25 @@
+package br.com.edson.entity;
+
+import java.io.Serializable;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Funcionario implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
+	private Integer id;
+	
+	
+	private String matricula;
+	
+	
+	private String nome;
+	
+	
+	private Set<Tarefa> tarefas = new LinkedHashSet<Tarefa>();
+	
+}

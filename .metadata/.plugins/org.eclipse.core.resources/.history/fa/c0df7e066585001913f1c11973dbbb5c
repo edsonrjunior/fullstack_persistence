@@ -1,0 +1,5 @@
+package br.com.edson.service;
+
+public class ProdutoService {
+
+}

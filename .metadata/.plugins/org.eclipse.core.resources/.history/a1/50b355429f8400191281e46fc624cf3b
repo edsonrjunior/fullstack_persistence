@@ -1,0 +1,30 @@
+package br.com.edson.helper;
+
+import javax.persistence.EntityManager;
+
+import br.com.edson.entity.Funcionario;
+
+public class Helper {
+
+	private EntityManager em;
+
+	public Helper(EntityManager em) {
+		this.em = em;
+	}
+	
+	public void Salvar(Funcionario funcionario) {
+		try {
+		em.getTransaction().begin();
+		em.persist(funcionario);
+		em.getTransaction().commit();
+		}
+		catch (Exception e) {
+			em.getTransaction().rollback();
+			System.out.println(e.getMessage());
+			
+		}
+	}
+	
+	
+	
+}

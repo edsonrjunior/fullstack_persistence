@@ -1,0 +1,50 @@
+package br.com.edson.entity;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+public class EventoHelper {
+
+	private EntityManager em;
+
+	private String salvar(Evento evento) {
+		try {
+			em.getTransaction().begin();
+			em.persist(evento);
+			return "Evento salvo com sucesso";
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+	}
+
+	public String adicionarParticipante(int idEvento, Participante participante) {
+		try {
+			//Busca evento existente através do ID
+			Evento evento = em.find(Evento.class, idEvento);		
+			
+			//Adiciona o participante ao Evento
+			participante.setEvento(evento);
+			
+			evento.getParticipantes().add(participante);
+			
+			em.getTransaction().begin();
+			em.persist(evento);
+			em.getTransaction().commit();
+			return "Evento atualizado com sucesso!";
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+	}
+	
+	
+	public List<Evento> listarEventos(){
+		TypedQuery<Evento> query = em.createQuery("select e from evento e", Evento.class);
+		return query.getResultList();
+	}
+	
+	
+	
+
+}

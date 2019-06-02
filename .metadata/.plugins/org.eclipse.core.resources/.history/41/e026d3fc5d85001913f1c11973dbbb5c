@@ -1,0 +1,5 @@
+package br.com.edson.model;
+
+public class Produto {
+
+}

@@ -1,0 +1,7 @@
+package br.com.edson.repository;
+
+
+public interface ProdutoRepository {
+	
+
+}

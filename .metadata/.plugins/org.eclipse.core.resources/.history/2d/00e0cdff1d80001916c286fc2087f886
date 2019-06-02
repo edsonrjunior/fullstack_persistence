@@ -1,0 +1,31 @@
+package br.com.edson.helper;
+
+import java.util.Date;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import br.com.edson.entity.Evento;
+import br.com.edson.entity.EventoHelper;
+import br.com.edson.entity.Participante;
+
+public class AppEventos {
+
+	public static void main(String[] args) {
+
+	}
+
+	public static void incluirEvento() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaPU");
+		
+		EntityManager em = emf.createEntityManager();
+
+		EventoHelper eventoHelper = new EventoHelper(em);
+		
+		Evento evento = new Evento("Novo curso disponivel", "Juneval do Santos", new Date());
+		
+		Participante p1 = new Participante("Jose Antonio", "janantonio@fiap.com.br", evento);
+
+	}
+}

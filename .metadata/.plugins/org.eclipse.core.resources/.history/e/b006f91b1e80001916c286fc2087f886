@@ -1,0 +1,52 @@
+package br.com.edson.helper;
+
+import java.util.Date;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import br.com.edson.entity.Evento;
+import br.com.edson.entity.EventoHelper;
+import br.com.edson.entity.Participante;
+
+public class AppEventos {
+
+	public static void main(String[] args) {
+
+	}
+
+	public static void incluirEvento() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaPU");
+
+		EntityManager em = emf.createEntityManager();
+
+		EventoHelper eventoHelper = new EventoHelper(em);
+
+		Evento evento = new Evento();
+		evento.setDescricao("Novo curso disponivel");
+		evento.setResponsavel("Juvenal Santos");
+		evento.setData(new Date());
+		
+		Participante p1 = new Participante();
+		p1.setNome("Jose Antonio");
+		p1.setEmail("jantonio@fap.com.br");
+		p1.setEvento(evento);
+		
+		Participante p2 = new Participante();
+		p2.setNome("Camila");
+		p2.setEmail("camila@fap.com.br");
+		p2.setEvento(evento);
+		
+		Participante p3 = new Participante();
+		p3.setNome("Bonifacio");
+		p3.setEmail("bonifacio@fap.com.br");
+		p3.setEvento(evento);
+		
+		evento.getParticipantes().add(p1);
+		evento.getParticipantes().add(p2);
+		evento.getParticipantes().add(p3);
+		
+		System.out.println(eventoHelper.salvar(evento));
+	}
+}

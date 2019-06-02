@@ -1,2 +1,8 @@
-.metadata
-.recommenders
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Maven
+log/
+target/
