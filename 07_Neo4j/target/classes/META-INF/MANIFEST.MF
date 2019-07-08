@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: 07_Neo4j
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Edson
+Implementation-Vendor-Id: 07_Neo4j
+Build-Jdk: 1.8.0_211
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/07_Neo4j
+Created-By: Maven Integration for Eclipse
+
